@@ -23,7 +23,7 @@ jobs:
         run: cp .env.example .env
 
       - name: Start Containers
-        run: make up
+        run: docker compose up -d --build
 
       - name: Generate App Key
         run: make artisan CMD="key:generate"
