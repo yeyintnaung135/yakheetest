@@ -55,6 +55,6 @@ RUN chmod -R 775 \
     storage \
     bootstrap/cache
 
-EXPOSE 9000
+EXPOSE 10000
 
-CMD ["php-fpm"]
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
