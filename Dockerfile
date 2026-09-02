@@ -30,11 +30,12 @@ WORKDIR /var/www
 
 COPY composer.json composer.lock ./
 
-RUN composer install \
-    --no-interaction \
-    --prefer-dist \
-    --optimize-autoloader \
-    --no-scripts
+RUN composer config -g process-timeout 300 \
+    && composer install \
+        --no-interaction \
+        --prefer-dist \
+        --optimize-autoloader \
+        --no-scripts
 
 COPY . .
 
